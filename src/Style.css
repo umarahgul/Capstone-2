@@ -50,3 +50,28 @@ footer {
     padding:1%;
     font-weight: 800;
 }
+
+#card {
+    padding:60%;
+    width: 25%;
+    height: 40%;
+    border:solid red;
+    background-color:white;
+    margin: 30%;
+}
+
+#movies {
+    border: solid yellowgreen;
+    background-color: goldenrod;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    padding:5%;
+}
+.comment {
+    width: fit-content;
+    font-size: 2rem;
+    padding:5%;
+}
