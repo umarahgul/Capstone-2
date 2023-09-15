@@ -1,5 +1,6 @@
 export let itemCount=[];
 import { retrieveLikesForItem } from "./likes";
+
 const url ='https://api.tvmaze.com/shows';
 
 // fetch datd from api
@@ -72,23 +73,23 @@ export const render = async () => {
   
     spanLikes.textContent = `Likes: ${count}`;
 
-    // likes.onclick=async function(){
-    //   try {
+    likes.onclick=async function(){
+      try {
         
-    //       const response = await countLikes(event);
-    //       if (response.ok) {
-    //         // Successfully liked the item, update the count in the UI
-    //         spanLikes.textContent = `Likes: ${count + 1}`;
-    //         alert('likes ' + spanLikes.textContent);
-    //       } else {
-    //         // Handle errors if needed
-    //         console.error('Failed to like the item:', response.status, response.statusText);
-    //       }
-    //     } catch (error) {
-    //       console.error('Failed to retrieve likes:', error.message);
-    //     }    
+          const response = await countLikes(event);
+          if (response.ok) {
+            // Successfully liked the item, update the count in the UI
+            spanLikes.textContent = `Likes: ${count + 1}`;
+            alert('likes ' + spanLikes.textContent);
+          } else {
+            // Handle errors if needed
+            console.error('Failed to like the item:', response.status, response.statusText);
+          }
+        } catch (error) {
+          console.error('Failed to retrieve likes:', error.message);
+        }    
        
-    // }
+    }
 
 
 
