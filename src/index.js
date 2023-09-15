@@ -4,44 +4,43 @@ import logo from './assets/logo.jpg'
 import {render} from './modules/populate';
 import getCommentsCount from './modules/comments-counter';
 import {renderpopup} from './modules/popup';
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   // This code will run after the DOM is fully loaded
-//   document.getElementById('logo-img').setAttribute('src', logo);
-//   populate(); // Call the populate function after setting the logo src
-// });
-
-
-// document.addEventListener('DOMContentLoaded', render);
-
-// document.getElementById('logo-img').setAttribute('src', logo);
-//  //render();
-
-// //..............  comment popup start ...............//
-
-//  const commentBtn = document.querySelectorAll('.commentBtn');
-
-//  // Add event to comment button
-//  commentBtn.forEach((btn) => {
-//    btn.addEventListener('click', async () => {
-//     alert ('i was clicked yo giffy');
-//      const { id } = btn.parentElement.parentElement;
-//      await renderpopup(id);
- 
- 
-//      const commentsCountCon = document.querySelector('.commentsCount');
- 
-//      commentsCountCon.textContent = `(${getCommentsCount()})`;
-//    });
-//  });
- //..........comment popup ends............//
+import { countLikes } from './modules/likes';
+import itemsCounter from './modules/itemsCounter';
 
  document.addEventListener('DOMContentLoaded', () => {
     // This code will run after the DOM is fully loaded
+
+
     document.getElementById('logo-img').setAttribute('src', logo);
     render(); // Call the render function after setting the logo src
+
+    const spanItems = document.querySelectorAll('.itemCount');
+// Add the number of items in the span.
+spanItems.forEach((span) => {
+  span.textContent = ` (${itemsCounter()})`;
+});
   
-    // Add a click event listener to a parent element that contains the .commentBtn buttons
+    // heart.forEach((icon) => icon.addEventListener('click', (event) => {
+  
+    //   alert('I was called');
+  
+    //   countLikes(event);
+  
+     
+    //  // event.target.classList.add('animation-heart');
+    //   // Selects the span element next to the icon.
+    //   const span = event.target.previousElementSibling;
+    //   //const span=document.querySelectorAll('.likesCount');
+    //   // Retrieves the number of likes and increment it by 1.
+    //   let count = Number(span.textContent.replace('likes', ''));
+    //   span.textContent = `${count += 1} likes`;
+    // }));
+  
+
+
+    
+    
+   // Add a click event listener to a parent element that contains the .commentBtn buttons
     document.body.addEventListener('click', (event) => {
       if (event.target.classList.contains('commentBtn')) {
         const btn = event.target;
@@ -52,5 +51,43 @@ import {renderpopup} from './modules/popup';
         //commentsCountCon.textContent = `(${getCommentsCount()})`;
       }
     });
-  });
+
+
+
+
+
+
+  // --------event listener for heart like button---//
   
+  });
+
+  
+//   const heart = document.querySelectorAll('.likeBtn');
+  
+// const spanItems = document.querySelectorAll('.itemCount'); // to be updated on the wepage
+
+// spanItems.values=` (${itemsCounter()})`;
+// //Add the number of items in the span.
+// // spanItems.forEach((span) => {
+// //   span.textContent = ` (${itemsCounter()})`;
+// //   spanItems.values=span.textContent;
+
+// // });
+
+  
+  
+  
+//   // counting likes, displaying likes and updating 
+  
+  
+
+
+
+
+
+
+
+
+
+
+

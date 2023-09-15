@@ -1,4 +1,5 @@
-
+export let itemCount=[];
+import { retrieveLikesForItem } from "./likes";
 const url ='https://api.tvmaze.com/shows';
 
 // fetch datd from api
@@ -22,25 +23,36 @@ export const render = async () => {
     .sort((a, b) => b.rating.average - a.rating.average)
     .slice(0, 3);
 
-    
+     
+   
   
     const tvShowsDiv = document.getElementById('movies');
+    //const likesCount =await retrieveLikes();
   
-  //const likes = await retrieveLikes();
 
   for (let x=0; x <topThree.length; x += 1)
   { 
-    alert (topThree[x].name);
+    
     const poster = topThree[x].image.medium;
     const title =topThree[x].name;
     const id=topThree[x].id;
     
+
+    const likesCount = await retrieveLikesForItem(id);
+    console.log('likesCountResponse:', likesCount);
+    const likesCountData = await likesCount.json();
+
+    // Extract the likes count from the data
+    const count = likesCountData.likes;
+   alert('likesCountData' + likesCountData);
     // a div containing image button and title
     const showDiv = document.createElement('div');
     showDiv.id = `${id}`;
     showDiv.classList.add('series');
-
     
+    // const serieLike = likesCount.find((obj) => obj.item_id === `${id}`);
+    // const count =  serieLike.likesCount;
+    // alert('value of count' + serieLike);
     const posterImg = document.createElement('img');
     posterImg.src = poster;
     //const icons = document.createElement('span');
@@ -50,8 +62,39 @@ export const render = async () => {
     const showName=document.createElement('h2');
     const likes=document.createElement('i');
     likes.classList.add('fa-solid', 'fa-heart', 'likeBtn');
+    
+
+    const spanLikes=document.createElement('span');
+    spanLikes.classList.add('likesCount'); // in place of items-count
+    spanLikes.textContent='likes : ${count}'; // edit this value and fetch for this value
     showName.textContent=title;
-     titleContainer.appendChild(showName);
+    
+  
+    spanLikes.textContent = `Likes: ${count}`;
+
+    // likes.onclick=async function(){
+    //   try {
+        
+    //       const response = await countLikes(event);
+    //       if (response.ok) {
+    //         // Successfully liked the item, update the count in the UI
+    //         spanLikes.textContent = `Likes: ${count + 1}`;
+    //         alert('likes ' + spanLikes.textContent);
+    //       } else {
+    //         // Handle errors if needed
+    //         console.error('Failed to like the item:', response.status, response.statusText);
+    //       }
+    //     } catch (error) {
+    //       console.error('Failed to retrieve likes:', error.message);
+    //     }    
+       
+    // }
+
+
+
+    titleContainer.appendChild(showName);
+    titleContainer.appendChild(spanLikes);
+    
      titleContainer.appendChild(likes);
      titleContainer.classList.add('div-title');
 
@@ -70,6 +113,8 @@ export const render = async () => {
     showDiv.appendChild(titleContainer);
     showDiv.appendChild(buttonContainer);
     tvShowsDiv.appendChild(showDiv);
+  
+    
   }
   
 }

@@ -205,7 +205,10 @@ footer {
     display: grid;
     flex-direction: column;
   }
-  
-  
- 
+  .likeBtn:hover {cursor: pointer;}
+  .likeBtn:active {
+    color:red;
+    
+  }
+
   
