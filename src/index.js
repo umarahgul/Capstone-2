@@ -1,8 +1,8 @@
-import _ from 'lodash';
+
 import './Style.css';
 import logo from './assets/logo.jpg';
 import { render } from './modules/populate';
-import getCommentsCount from './modules/comments-counter';
+//import getCommentsCount from './modules/comments-counter';
 import { renderpopup } from './modules/popup';
 import { countLikes } from './modules/likes';
 import itemsCounter from './modules/itemsCounter';
