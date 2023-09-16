@@ -37,14 +37,15 @@ export const render = async () => {
     showDiv.classList.add('series');
     // comparing to find the matching ids
 
-    const serieLike = likesCount.find((obj) => obj.item_id === `${id}`);
-    const count = !serieLike ? 0 : serieLike.likesCount;
+    //  ---------  PROBLEM ------------------//
+    // const serieLike = likesCount.find((obj) => obj.item_id === `${id}`);
+    // const count = !serieLike ? 0 : serieLike.likesCount;
 
-    alert(`value of count${count.likes}`);
+    // alert(`value of count${count.likes}`);
 
     // Handle the case when serieLike is not found
     console.error(`No likes data found for item_id: ${id}`);
-
+ 
     const posterImg = document.createElement('img');
     posterImg.src = poster;
     // const icons = document.createElement('span');
@@ -57,7 +58,7 @@ export const render = async () => {
 
     const spanLikes = document.createElement('span');
     spanLikes.classList.add('likesCount'); // in place of items-count
-    spanLikes.textContent = `likes : ${count}`; // edit this value and fetch for this value
+    spanLikes.textContent = `likes :`; // edit this value and fetch for this value
     showName.textContent = title;
 
     // spanLikes.textContent = `Likes: ${count}`;
