@@ -1,4 +1,3 @@
-
 import sendData from './send.js';
 import getCommentsCount from './comments-counter.js';
 
@@ -14,18 +13,15 @@ const getData = async (url) => {
 
 // renderpopup get the data from getData function and inject the popup templete with that data
 
-export const renderpopup = async (showid = 98) => {
-  
+const renderpopup = async (showid = 98) => {
   const container = document.getElementById('comment-popup-container');
   const mainUrl = `https://api.tvmaze.com/shows/${showid}`;
-  const involvementUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/FjhFMUdws0lCxR3eXCdS/comments?item_id=${parseInt(showid, 10)}`;
-  
-  
+  const involvementUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/1mPLuzSJJ7LBsYjPFxf3/comments?item_id=${parseInt(showid, 10)}`;
+
   // Fetch data from API
   const data = await getData(mainUrl);
   const comments = await getData(involvementUrl);
-   
-  
+
   // Templete for the comment popup
   container.innerHTML = `
         <div class="blur"></div>
@@ -95,3 +91,5 @@ export const renderpopup = async (showid = 98) => {
     }
   });
 };
+
+export default renderpopup;

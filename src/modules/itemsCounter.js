@@ -1,20 +1,18 @@
 // Returns the length of the node (the divs with the series class).
-import { itemCount } from "./populate";
-import render from "./populate";
 
 const itemsCounter = () => {
+  const seriesElements = document.querySelectorAll('.series');
 
-  
-    if (!document.querySelectorAll('.series')) {
-       
-        return 0;
-     
-    }
-    if (document.querySelectorAll('.series').length > 30) {
-      return 'Error';
-    }
-    return document.querySelectorAll('.series').length;
-  
+  // if (!seriesElements) {
+
+  //     return 0;
+
+  // }
+  // if (seriesElements.length > 30) {
+  //   return 'Error';
+  // }
+  alert(`no of items ${seriesElements.length}`);
+  return seriesElements.length;
 };
-  
-  export default itemsCounter;
+
+export default itemsCounter;
