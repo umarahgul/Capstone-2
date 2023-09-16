@@ -23,6 +23,7 @@ export const render = async () => {
   const topThree = data
     .sort((a, b) => b.rating.average - a.rating.average)
     .slice(0, 6);
+  alert(`alertcount${likesCount}`);
 
   const tvShowsDiv = document.getElementById('movies');
 
@@ -45,7 +46,7 @@ export const render = async () => {
 
     // Handle the case when serieLike is not found
     console.error(`No likes data found for item_id: ${id}`);
- 
+
     const posterImg = document.createElement('img');
     posterImg.src = poster;
     // const icons = document.createElement('span');
@@ -58,7 +59,7 @@ export const render = async () => {
 
     const spanLikes = document.createElement('span');
     spanLikes.classList.add('likesCount'); // in place of items-count
-    spanLikes.textContent = `likes :`; // edit this value and fetch for this value
+    spanLikes.textContent = 'likes :'; // edit this value and fetch for this value
     showName.textContent = title;
 
     // spanLikes.textContent = `Likes: ${count}`;
