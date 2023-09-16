@@ -1,15 +1,13 @@
 import './Style.css';
 import logo from './assets/logo.jpg';
 import { render } from './modules/populate';
-//import getCommentsCount from './modules/comments-counter';
-
 import { renderpopup } from './modules/popup';
 import { countLikes } from './modules/likes';
 import itemsCounter from './modules/itemsCounter';
 
 // document.addEventListener('DOMContentLoaded', () => {
 // This code will run after the DOM is fully loaded
-
+//import getCommentsCount from './modules/comments-counter';
 document.getElementById('logo-img').setAttribute('src', logo);
 render(); // Call the render function after setting the logo src
 
